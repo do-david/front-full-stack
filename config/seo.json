@@ -1,0 +1,22 @@
+{
+    "title": "David Storefront",
+    "titleTemplate": "%s - David Storefront",
+    "description": "Project e-Commerce - https://front-full-stack.vercel.app/commerce",
+    "openGraph": {
+      "title": "David Storefront",
+      "description": "e-Commerce - https://front-full-stack.vercel.app/commerce",
+      "type": "website",
+      "locale": "en_IE",
+      "url": "https://front-full-stack.vercel.app/commerce",
+      "site_name": "e-Commerce",
+      "images": [
+        {
+          "url": "/card.png",
+          "width": 800,
+          "height": 600,
+          "alt": "e-Commerce"
+        }
+      ]
+    }
+  }
+  
