@@ -8,7 +8,7 @@ const Cart: FC = () => {
     const productsCount = null !== cart && Object.keys(cart).length ? cart.totalProductsCount : ''
     return (
         <>
-          <Link href="/handlekurv">
+          <Link href="/cart">
             <a
               className="inline-block pl-4 mt-4 no-underline"
               aria-label="Handlekurv"

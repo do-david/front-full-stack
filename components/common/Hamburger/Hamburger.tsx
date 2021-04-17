@@ -97,17 +97,17 @@ const Hamburger: FC = () => {
                   className="inline-block px-4 py-2 no-underline hover:text-black hover:underline"
                   href="#"
                 >
-                  Hjem
+                  Home
                 </a>
               </Link>
             </li>
             <li className="w-full p-4 border-t border-gray-400 border-solid rounded">
-              <Link href="/produkter">
+              <Link href="/products">
                 <a
                   className="inline-block px-4 py-2 no-underline hover:text-black hover:underline"
                   href="#"
                 >
-                  Produkter
+                  Products
                 </a>
               </Link>
             </li>
@@ -115,12 +115,12 @@ const Hamburger: FC = () => {
               id="mobile-li"
               className="w-full p-4 border-t border-b border-gray-400 border-solid rounded"
             >
-              <Link href="/kategorier">
+              <Link href="/categories">
                 <a
                   className="inline-block px-4 py-2 no-underline hover:text-black hover:underline"
                   href="#"
                 >
-                  Kategorier
+                  Categories
                 </a>
               </Link>
             </li>
