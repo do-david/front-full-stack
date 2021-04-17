@@ -97,7 +97,7 @@ const Hamburger: FC = () => {
                   className="inline-block px-4 py-2 no-underline hover:text-black hover:underline"
                   href="#"
                 >
-                  Home
+                  Accueil
                 </a>
               </Link>
             </li>
@@ -107,7 +107,7 @@ const Hamburger: FC = () => {
                   className="inline-block px-4 py-2 no-underline hover:text-black hover:underline"
                   href="#"
                 >
-                  Products
+                  Produits
                 </a>
               </Link>
             </li>
