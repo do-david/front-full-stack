@@ -1,1 +1,6 @@
 export { default as Head } from './Head'
+export { default as Hamburger } from './Hamburger'
+export { default as Cart } from './Cart'
+export { default as NavBar } from './Navbar'
+export { default as Footer } from './Footer'
+export { default as Layout } from './Layout'
