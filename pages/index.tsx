@@ -6,7 +6,7 @@ const GET_PRODUCTS = process.env.REACT_APP_FAKESTORE_API_URL
 const Home:FC = () => {
   const [products, setProducts] = useState([])
   const [errorMsg, setErrorMsg] = useState('')
-  const productEx = {id:1 , image:'https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg'}
+  const productEx = {id:1 , image:'https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg', title:'tee-shirt'}
   const getProducts = async () => {
     try {
         if(GET_PRODUCTS){
@@ -29,7 +29,7 @@ const Home:FC = () => {
   },[])
   return(
     <Container>
-      <Carousel id={productEx.id} image={productEx.image}/>
+      <Carousel id={productEx.id} image={productEx.image} title={productEx.title}/>
     </Container>
   )
 }
