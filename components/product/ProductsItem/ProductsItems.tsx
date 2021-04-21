@@ -39,6 +39,8 @@ const ProductItems:FC<IProductView> = ({...props}) => {
                     className="transition duration-500 ease-in-out transform cursor-pointer hover:grow hover:shadow-lg hover:scale-105"
                     alt={title}
                     src={imageUrl}
+                    width="250"
+                    height="250"
                     />
                 ) : (
                     <img
@@ -46,6 +48,8 @@ const ProductItems:FC<IProductView> = ({...props}) => {
                     className="transition duration-500 ease-in-out transform cursor-pointer hover:grow hover:shadow-lg hover:scale-105"
                     alt={title}
                     src="https://fakeimg.pl/300/"
+                    width="250"
+                    height="250"
                     />
                 )}
                 </a>

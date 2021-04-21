@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { FC } from 'react'
-import { Hamburger,Cart } from '@components/common'
+import { Hamburger,Cart, Avatar } from '@components/common'
 import { Container } from '@components/ui'
 
 const NavBar:FC = () => {
@@ -56,6 +56,7 @@ const NavBar:FC = () => {
               >
                 {/* <Search /> */}
                 <Cart />
+                <Avatar/>
               </div>
             </div>
           </nav>
