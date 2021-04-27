@@ -3,12 +3,13 @@ import React, { FC } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 
 export interface IProductView {
-    id: number;
+    id: string;
     imageUrl: string;
     price: number;
     title: string;
 }
 const ProductItems:FC<IProductView> = ({...props}) => {
+    console.log('props =',props)
     const id = props.id
     const imageUrl = props.imageUrl
     const price = props.price
@@ -26,11 +27,11 @@ const ProductItems:FC<IProductView> = ({...props}) => {
     return (
       <>
             <div
-            key={uuidv4()}
+            key={id}
             className="flex flex-col p-6 md:w-1/2 xl:w-1/4"
             >
             <Link
-                href={`/product/${encodeURIComponent(id)}`}
+                href={`/product/${id}`}
             >
                 <a>
                 {imageUrl ? (
@@ -56,7 +57,7 @@ const ProductItems:FC<IProductView> = ({...props}) => {
             </Link>
 
             <Link
-                href={`/product/id=${encodeURIComponent(id)}`}
+                href={`/${id}`}
             >
                 <a>
                 <div className="flex justify-center pt-3">

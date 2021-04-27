@@ -4,19 +4,14 @@ import { FC, useEffect } from 'react'
 import type { AppProps } from 'next/app'
 import { Head, Layout} from '@components/common'
 import { ManagedUIContext } from '@components/ui/context'
+import { ApolloProvider } from '@apollo/client'
+import client from 'utils/apollo/ApolloClient'
 
-// const Noop: FC = ({ children }) => <>{children}</>
-
-export default function MyApp({ Component, pageProps }: AppProps) {
-  // const Layout = (Component as any).Layout || Noop
-
-  // useEffect(() => {
-  //   document.body.classList?.remove('loading')
-  // }, [])
-
+const MyApp = ({ Component, pageProps }:AppProps) => {
   return (
     <>
       <Head />
+      <ApolloProvider client={client}>
       <ManagedUIContext>
         <AppProvider>
           <Layout>
@@ -24,6 +19,9 @@ export default function MyApp({ Component, pageProps }: AppProps) {
           </Layout>
         </AppProvider>
       </ManagedUIContext>
+      </ApolloProvider>
     </>
   )
 }
+
+export default MyApp

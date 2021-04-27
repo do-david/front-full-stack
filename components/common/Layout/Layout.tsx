@@ -7,9 +7,7 @@ const Layout:FC = ({children}) => {
     return(
         <>
             <NavBar/>
-                <Container>
-                    {children}
-                </Container>
+                {children}
             <Footer/>
         </>
     )
