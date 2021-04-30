@@ -23,7 +23,7 @@ const ProductItems:FC<IProductView> = ({...props}) => {
         return result
     }
     const verifyUrl = (url:string) => {
-        let protocol = 'https://'
+        let protocol = 'https://fakestoreapi.com/img'
         let res = false
         if(url.indexOf(protocol) !== -1){
             res = true
@@ -36,44 +36,39 @@ const ProductItems:FC<IProductView> = ({...props}) => {
             key={id}
             className="flex-col p-6 md:w-1/2 xl:w-1/4"
             >
-            <Link
-                href={`/product/${id}`}
-            >
-                <a className="flex justify-center">
                 {imageUrl && verifyUrl(imageUrl)? (
-                    <img
-                    id="product-image"
-                    className="transition duration-500 ease-in-out transform cursor-pointer hover:grow hover:shadow-lg hover:scale-105"
-                    alt={title}
-                    src={imageUrl}
-                    width="250"
-                    height="250"
-                    />
+                    <Link  href={{ pathname: `/product/${id}`, query: {fake: true}}}>
+                        <a className="flex justify-center">
+                            <img
+                            id="product-image"
+                            className="transition duration-500 ease-in-out transform cursor-pointer hover:grow hover:shadow-lg hover:scale-105"
+                            alt={title}
+                            src={imageUrl}
+                            width="250"
+                            height="250"
+                            />
+                        </a>
+                    </Link>
                 ) : (
-                    <img
-                    id="product-image"
-                    className="transition duration-500 ease-in-out transform cursor-pointer hover:grow hover:shadow-lg hover:scale-105"
-                    alt={title}
-                    src="https://fakeimg.pl/300/"
-                    width="250"
-                    height="250"
-                    />
+                    <Link  href={{ pathname: `/product/${id}`, query: {fake: false}}}>
+                        <a className="flex justify-center">
+                            <img
+                            id="product-image"
+                            className="transition duration-500 ease-in-out transform cursor-pointer hover:grow hover:shadow-lg hover:scale-105"
+                            alt={title}
+                            src={imageUrl}
+                            width="250"
+                            height="250"
+                            />
+                        </a>
+                    </Link>
                 )}
-                </a>
-            </Link>
-
-            <Link
-                href={`/${id}`}
-            >
-                <a>
                 <div className="flex justify-center pt-3">
                     <p className="font-bold text-center cursor-pointer">
                     {title.length > 18 ? getShortTitle(title) : title}
                     </p>
                 </div>
-                </a>
-            </Link>
-            <p className="pt-1 text-center text-gray-900"> ${price}</p>
+                    <p className="pt-1 text-center text-gray-900"> ${price}</p>
             </div>
       </>
     );

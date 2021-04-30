@@ -12,7 +12,7 @@ export const GET_ALL_PRODUCTS = gql`
     }
 `
 export const GET_PRODUCT = gql`
-    query Product($id: ID) {
+    query Product($id: ID!) {
         product(id:$id){
             id,
             title,
