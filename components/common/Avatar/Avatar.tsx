@@ -1,21 +1,19 @@
-import { Container, Modal } from '@components/ui'
-import Link from 'next/link'
-import { useRouter } from 'next/router'
-import { useState, FC } from 'react'
-import { useMutation } from '@apollo/client'
-import { LOGIN } from '../../../utils/apollo/mutations/login'
+import { Modal } from '@components/ui';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { useContext, useState, FC } from 'react';
+import { AppContext } from '../../../utils/context/AppContext';
 
 const Avatar: FC = () => {
-    const router = useRouter()
-    const [ isOpen, setIsOpen ] = useState(false)
-    const [formState,setFormState] = useState({email:'',password:''})
-    // const [login, { loading, error }] = useMutation(LOGIN)
-    const [errorMessage, setErrorMessage] = useState('')
+    const [,setAuth] = useContext(AppContext);
+    const router = useRouter();
+    const [ isOpen, setIsOpen ] = useState(false);
+    const [formState,setFormState] = useState({email:'',password:''});
+    const [errorMessage, setErrorMessage] = useState('');
     const handleSubmit = (e:any) => {
-        e.preventDefault()
-        // login()
+        e.preventDefault();
         const myBody = JSON.stringify(formState);
-        const callOption = {"Content-type": "Application/json"}
+        const callOption = {"Content-type": "Application/json"};
         fetch("https://full-stack1.herokuapp.com/api/v1/login",{method: "POST",headers:callOption ,body: myBody})
         .then(res=>res.json())
         .then(data => {
@@ -26,6 +24,7 @@ const Avatar: FC = () => {
             else {
                 let token = data.token;
                 localStorage.setItem('token',token);
+                setAuth(true);
                 setIsOpen(false);
                 router.push("/account");
             }
@@ -35,9 +34,6 @@ const Avatar: FC = () => {
             setErrorMessage(err.message);
         });
     }
-    // if(loading){
-    //     return(<Container>Loading ...</Container>)
-    // }
     return(
        <>
             <Modal className="bg-white" open={isOpen} onClose={()=>setIsOpen(false)}>
@@ -71,11 +67,6 @@ const Avatar: FC = () => {
                         </a>
                     </div>
                 </div>
-            {/* {error && (
-                <span className="text-red-500">
-                    An error occured: {error.message}
-                </span>
-            )} */}
             {errorMessage && (
                 <span className="text-red-500">
                     An error occured: {errorMessage}
@@ -122,5 +113,5 @@ const Avatar: FC = () => {
             </button>
         </>
     )
-}
-export default Avatar
+};
+export default Avatar;

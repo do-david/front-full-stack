@@ -1,9 +1,11 @@
 import Link from 'next/link'
-import { FC } from 'react'
-import { Hamburger,Cart, Avatar } from '@components/common'
+import { useContext, FC, useEffect } from 'react'
+import { Hamburger,Cart, Avatar, Logout } from '@components/common'
 import { Container } from '@components/ui'
+import { AppContext } from 'utils/context/AppContext'
 
 const NavBar:FC = () => {
+  const [isAuth] = useContext(AppContext)
     return (
         <Container>
           <nav id="header" className="fixed top-0 z-50 w-full py-1 bg-white ">
@@ -55,8 +57,15 @@ const NavBar:FC = () => {
                 id="nav-content"
               >
                 {/* <Search /> */}
-                <Cart />
-                <Avatar/>
+                {isAuth &&(
+                  <>
+                    <Cart />
+                    <Logout/>
+                  </>
+                )}
+                {!isAuth &&(
+                  <Avatar/>
+                )}
               </div>
             </div>
           </nav>
