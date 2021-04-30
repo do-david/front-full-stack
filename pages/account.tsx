@@ -6,6 +6,7 @@ import { useQuery } from '@apollo/client'
 import { IUser } from 'models/user'
 
 const Account: FC<IUser>= () => {
+    if(typeof window !== 'undefined') {
     const token = localStorage.getItem('token')
     if(token){
         const jwtDecoded:any = jwt.verify(token,'supersecret');
@@ -75,6 +76,11 @@ const Account: FC<IUser>= () => {
     } else {
         return(
             <Container> Erreur lors de la récupération du token</Container>
+        )
+    }
+    } else {
+        return(
+            <Container> Erreur interne</Container>
         )
     }
 }
