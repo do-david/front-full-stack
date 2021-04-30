@@ -7,7 +7,13 @@ const Layout:FC = ({children}) => {
     return(
         <>
             <NavBar/>
-                {children}
+            <Container>
+                <div className="flex-1">
+                    <section className="container mx-auto bg-white">
+                        {children}
+                    </section>
+                </div>
+            </Container>
             <Footer/>
         </>
     )

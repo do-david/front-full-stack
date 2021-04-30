@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import React, { FC } from 'react'
-import { v4 as uuidv4 } from 'uuid'
 
 export interface IProductView {
     id: string;
@@ -9,7 +8,6 @@ export interface IProductView {
     title: string;
 }
 const ProductItems:FC<IProductView> = ({...props}) => {
-    console.log('props =',props)
     const id = props.id
     const imageUrl = props.imageUrl
     const price = props.price
@@ -24,17 +22,25 @@ const ProductItems:FC<IProductView> = ({...props}) => {
         result = `${result}...`
         return result
     }
+    const verifyUrl = (url:string) => {
+        let protocol = 'https://'
+        let res = false
+        if(url.indexOf(protocol) !== -1){
+            res = true
+        }
+        return res
+    }
     return (
       <>
             <div
             key={id}
-            className="flex flex-col p-6 md:w-1/2 xl:w-1/4"
+            className="flex-col p-6 md:w-1/2 xl:w-1/4"
             >
             <Link
                 href={`/product/${id}`}
             >
-                <a>
-                {imageUrl ? (
+                <a className="flex justify-center">
+                {imageUrl && verifyUrl(imageUrl)? (
                     <img
                     id="product-image"
                     className="transition duration-500 ease-in-out transform cursor-pointer hover:grow hover:shadow-lg hover:scale-105"
@@ -62,7 +68,7 @@ const ProductItems:FC<IProductView> = ({...props}) => {
                 <a>
                 <div className="flex justify-center pt-3">
                     <p className="font-bold text-center cursor-pointer">
-                    {getShortTitle(title)}
+                    {title.length > 18 ? getShortTitle(title) : title}
                     </p>
                 </div>
                 </a>
