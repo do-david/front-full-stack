@@ -12,9 +12,9 @@ export const GET_ALL_USERS = gql`
         }
     }
 `
-export const GET_PRODUCT = gql`
-    query User($id: ID) {
-        user(userId:$id) {
+export const GET_USER = gql`
+    query User($id: ID!) {
+        getCurrentUser(id:$id) {
             id,
             firstName,
             lastName,
